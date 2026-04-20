@@ -1,27 +1,24 @@
 {
-    "manifest_version": 3,
-    "name": "Quick Test Extension",
-    "version": "1.0",
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "test@keshav.com",
-            "data_collection_permissions": {
-                "required": [
-                    "none"
-                ],
-                "optional": []
-            }
-        }
-    },
-    "permissions": [
-        "activeTab",
-        "scripting"
-    ],
-   "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["inject.js"],
-            "run_at": "document_start"
-        }
-    ]
+  "manifest_version": 3,
+  "name": "KSTable Engine",
+  "version": "1.0",
+
+  "permissions": ["scripting"],
+
+  "host_permissions": ["<all_urls>"],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["inject.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["kstable.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

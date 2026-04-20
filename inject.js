@@ -1,14 +1,14 @@
-window.myTestFunction = function () {
-    alert("Hello from REAL page context ✅");
-};
+(function () {
+    if (window.__KSTABLE__) return;
+    window.__KSTABLE__ = true;
 
-console.log("myTestFunction attached");
+    const script = document.createElement("script");
+    script.src = browser.runtime.getURL("kstable.js");
 
-// ✅ ADD THIS LINE
-window.myTestFunction();
+    script.onload = () => {
+        console.log("✅ KSTable injected");
+        script.remove();
+    };
 
-window.addEventListener("message", (event) => {
-    if (event.data === "RUN_MY_FUNC") {
-        window.myTestFunction();
-    }
-});
+    (document.head || document.documentElement).appendChild(script);
+})();
