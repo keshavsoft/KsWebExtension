@@ -5,20 +5,27 @@
 
   "permissions": ["scripting"],
 
-  "host_permissions": ["<all_urls>"],
-
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["inject.js"],
-      "run_at": "document_start"
-    }
-  ],
+"content_scripts": [
+  {
+    "matches": ["http://localhost/*", "https://keshavsoft.com/*"],
+    "js": ["inject.js"],
+    "run_at": "document_start"
+  }
+],
 
   "web_accessible_resources": [
     {
       "resources": ["kstable.js"],
-      "matches": ["<all_urls>"]
+     "matches": ["http://localhost/*", "https://keshavsoft.com/*"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+        "id": "kstable@keshavsoft.com",
+      "data_collection_permissions": {
+            "required": ["none"],
+            "optional": []
+        }
+    }
+}
 }
