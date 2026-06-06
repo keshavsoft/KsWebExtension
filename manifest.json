@@ -1,30 +1,51 @@
 {
   "manifest_version": 3,
   "name": "KSTable Engine",
-  "version": "2.12",
-
-  "permissions": ["scripting"],
-
+  "version": "2.13",
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+  "permissions": [
+    "scripting"
+  ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["inject.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "inject.js"
+      ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "injectCss.js"
+      ],
+      "run_at": "document_idle"
     }
   ],
-
   "web_accessible_resources": [
     {
-      "resources": ["kstable.js"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "kstable.js",
+        "tailwind-3.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ],
-
   "browser_specific_settings": {
     "gecko": {
       "id": "kstable-public@keshavsoft.com",
       "data_collection_permissions": {
-        "required": ["none"],
+        "required": [
+          "none"
+        ],
         "optional": []
       }
     }

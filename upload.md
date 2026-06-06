@@ -9,6 +9,7 @@
 * Internal code cleanup and maintenance updates.
 * Performance optimizations for large tables.
 * Bug fixes and minor enhancements.
+* added css also
 
 ---
 
@@ -53,7 +54,10 @@ This extension consists of three source files:
 
 - manifest.json
 - inject.js
+- injectCss.js
 - kstable.js
+- tailwind-3.css
+- icons folder
 
 Purpose:
 The extension injects kstable.js into web pages so that KSTable functionality is available in the page context.

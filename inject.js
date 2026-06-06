@@ -9,9 +9,5 @@
         script.remove();
     };
 
-    script.onerror = () => {
-        console.error("❌ KSTable failed to load");
-    };
-
     document.documentElement.appendChild(script);
 })();
