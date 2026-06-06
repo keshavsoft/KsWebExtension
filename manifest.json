@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "KSTable Engine",
-  "version": "1.10",
+  "version": "2.12",
 
   "permissions": ["scripting"],
 
