@@ -50,7 +50,7 @@ Version 2.12.1
 
 Notes to Reviewer: 
 
-This extension consists of three source files:
+This extension consists of below six source files:
 
 - manifest.json
 - inject.js
