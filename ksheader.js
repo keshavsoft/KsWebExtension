@@ -1,0 +1,52 @@
+(function(e){typeof define==`function`&&define.amd?define([],e):e()})(function(){var e=(e=``)=>{let t=document.createElement(`li`);return t.className=e,t},t=({inHtmlId:e=``,inHref:t=`#`,cls:n=``,inTableName:r=``})=>{let i=document.createElement(`a`);return i.id=e,i.href=t,i.className=n,r&&(i.dataset.tableName=r),i},n=({inTextToShow:e=``,inClassName:t=``})=>{let n=document.createElement(`span`);return n.className=t,n.textContent=e,n},r={serverStack:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z" />
+</svg>
+`,copy:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+</svg>
+`,puzzle:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
+</svg>
+`,folderPlus:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+</svg>
+`,download:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
+</svg>`,search:`
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+</svg>
+    `,home:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+</svg>
+`,serial:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.242 5.992h12m-12 6.003H20.24m-12 5.999h12M4.117 7.495v-3.75H2.99m1.125 3.75H2.99m1.125 0H5.24m-1.92 2.577a1.125 1.125 0 1 1 1.591 1.59l-1.83 1.83h2.16M2.99 15.745h1.125a1.125 1.125 0 0 1 0 2.25H3.74m0-.002h.375a1.125 1.125 0 0 1 0 2.25H2.99" />
+</svg>
+`,currency:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+`,wifi:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z" />
+</svg>
+`,exclamation:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+</svg>
+`,search1:`
+  <div class="w-10 h-10 flex items-center justify-center">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+</svg>
+ </div>
+    `},i=({inSvgName:e,inSvgDivClass:t=``})=>{if(e in r){let n=document.createRange().createContextualFragment(r[e]).firstElementChild,i=document.createElement(`div`);return i.className=t,i.appendChild(n),i}return document.createRange().createContextualFragment(r.search).firstElementChild},a=()=>({containerId:`kSTableContainer`,tableName:``,mode:`create`,layout:{verticalPosition:`top`,type:`table`},endPoints:{create:``,update:``,delete:``,read:``,find:``},options:{firstRow:{showSearch:!0},vertical:{showVertical:!0,isDisabled:!1,showSaveButton:!0},dataList:{show:!0},table:{isDisabled:!1,showTable:!0,showRowOptions:!1,showSerial:!0,showFooter:!1,footer:{showDataList:!0}},focus:{priority:[`vertical`,`footer`,`search`]}},columnsConfig:[],uiClasses:{form:{formClass:`grid grid-cols-3 gap-x-8 gap-y-4 p-6 verticalForm`,buttonClass:`mt-2 px-4 py-1 bg-green-500 text-white`,rowClass:`flex items-center space-x-4`,labelClass:`w-24 text-sm font-medium`,inputClass:`flex-1 border rounded px-3 py-2`}},callbacks:{table:{onDelete:async({toDeletePk:e})=>await await startFetchAsGet({inQuery:{ParentPk:e}})}}}),o=async({tableName:e})=>{let t=a();return t.columnsConfig=(await(await fetch(`/columns.json`)).json())[e].columnsConfig,t.tableName=e,t.endPoints.read=`/Api/V1/${e}/ShowAll`,t},s=async e=>window.KSTable?.initTableOnly?window.KSTable.initTableOnly(e):initTableOnly(e),c=({onClick:e})=>async t=>{t.preventDefault();let n=t.currentTarget,r=await s(await o({tableName:n.dataset.tableName}));console.log(`fromCallKSTable : `,r),e&&await e(t)},l=({inTextToShow:r,inHtmlId:a,inIconPaths:o,inHref:s,onClick:l,inTableName:u,inClasses:d,inSvgName:f,inConfigUiClasses:p})=>{let m=e(d.liClass),h=t({inHtmlId:a,inHref:s,cls:d?.aClass,inTableName:u}),g=n({inTextToShow:r,inClassName:d.spanClass}),_=i({inSvgName:f,inSvgDivClass:p.svgDivClass});return l&&h.addEventListener(`click`,c({onClick:l})),h.append(_,g),m.appendChild(h),m},u=({inHeading:e=`KeshavSoft`,inHtmlId:t=`titlehtmlId`})=>{let n=document.createElement(`div`);return n.className=`text-xl font-semibold`,n.innerText=e,n.id=t,n},d=()=>{let e=document.createElement(`button`);return e.className=`text-xl px-4 py-1 md:hidden`,e.innerText=`☰`,e.addEventListener(`click`,()=>{document.getElementById(`menu`).classList.toggle(`hidden`)}),e},f=({inUlClass:e=``})=>{let t=document.createElement(`ul`);return t.id=`menu`,t.className=`w-full hidden flex flex-col space-y-2 mt-4
+    md:flex md:flex-row md:space-y-0 md:gap-4
+    md:mt-0 md:w-auto md:flex-wrap ${e}`,t},p=()=>{let e=document.createElement(`nav`);e.className=`bg-gray-800 text-white`;let t=document.createElement(`div`);t.className=`mx-auto px-3 py-3
+    max-w-3xl
+    lg:max-w-5xl
+    xl:max-w-full xl:px-10`;let n=document.createElement(`div`);return n.className=`flex flex-wrap items-center justify-between`,t.appendChild(n),e.appendChild(t),{nav:e,innerDiv:n}},m=({inTitle:e={},inUiClasses:t={}})=>{let{nav:n,innerDiv:r}=p();return r.appendChild(u({inHeading:e.text,inHtmlId:e.htmlId})),r.appendChild(d()),r.appendChild(f({inUlClass:t?.ulClass})),n},h=(e={})=>{let t=document.getElementById(`header`);if(!t)return;t.appendChild(m({inTitle:e.title,inUiClasses:e.uiClasses}));let n=document.getElementById(`menu`);(e.items||[]).forEach(t=>{let r={liClass:`md:text-center`,aClass:`${t?.uiClasses?.aClass} flex justify-between items-center
+        bg-gray-700 px-4 py-2 rounded-md
+        hover:bg-gray-600
+        active:bg-gray-500 active:scale-95
+        transition-all duration-150
+        md:flex-col md:justify-center md:items-center
+        lg:bg-transparent lg:px-2 lg:py-1`,spanClass:`ml-3 text-right w-full text-base
+        md:w-auto md:text-center md:ml-0 lg:text-lg`,svgClass:`text-gray-300 w-6 h-6 lg:w-7 lg:h-7`},i=l({inTextToShow:t.text,inHtmlId:t.id,inIconPaths:t.icon,inHref:t.href,onClick:t.onClick,inTableName:t.tableName,inClasses:r,inSvgName:t.svgName,inConfigUiClasses:e.uiClasses});n.appendChild(i)})};window.KSHeader=h,console.log(`KSHeader loaded`),(async()=>{window.KSHeaderVersion=`v4.3`,window.KSHeader=h})()});

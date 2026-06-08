@@ -56,7 +56,8 @@ This extension consists of below six source files:
 - inject.js
 - injectCss.js
 - kstable.js
-- tailwind-3.css
+- ksheader.js
+- tailwind-3-min.css
 - icons folder
 
 Purpose:

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "KSTable Engine",
-  "version": "2.14",
+  "version": "2.15",
   "icons": {
     "48": "icons/icon-48.png"
   },
@@ -32,6 +32,7 @@
     {
       "resources": [
         "kstable.js",
+        "ksheader.js",
         "tailwind-3.css"
       ],
       "matches": [
