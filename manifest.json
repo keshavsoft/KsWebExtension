@@ -3,7 +3,8 @@
   "name": "KSTable Engine",
   "version": "2.16",
   "icons": {
-    "48": "icons/icon-48.png"
+    "48": "icons/KSIcon-48.png",
+    "96": "icons/KSIcon-96.png"
   },
   "permissions": [
     "scripting"
