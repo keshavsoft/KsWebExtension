@@ -13,4 +13,8 @@
     inject("kstable.js");
 
     console.log("✅ KSTable JS injected");
+    
+    inject("kstablecomp.js");
+
+    console.log("✅ KSTableComponents JS injected");
 })();
