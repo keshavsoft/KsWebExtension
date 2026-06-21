@@ -55,6 +55,7 @@ This extension consists of below six source files:
 - manifest.json
 - inject.js
 - kstable.js
+- kstablecomp.js
 - ksheader.js
 - tailwind-3-min.css
 - icons folder
