@@ -1,6 +1,6 @@
 # Release Notes
 
-## Version 1.10.1
+## Version 2.17.1
 
 ### Improvements
 
@@ -10,18 +10,22 @@
 * Performance optimizations for large tables.
 * Bug fixes and minor enhancements.
 * added css also
+* Updated KSTableComponent engine.
 
 ---
 
 # Notes to Reviewer
 
-This extension injects `kstable.js` into web pages through `inject.js`.
+This extension injects `kstable.js`, `kstablecomp.js`, `ksheader` into web pages through `inject.js`.
 
 Package contents:
 
 * manifest.json
 * inject.js
 * kstable.js
+* kstablecomp.js
+* ksheader.js
+* Icons folder
 
 No build step is required.
 
