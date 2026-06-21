@@ -12,6 +12,19 @@
 * added css also
 * Updated KSTableComponent engine.
 
+## Version 2.18
+
+### Improvements
+
+* Updated KSTable engine.
+* Improved table rendering and stability.
+* Internal code cleanup and maintenance updates.
+* Performance optimizations for large tables.
+* Bug fixes and minor enhancements.
+* added css also
+* Updated KSTableComponent engine.
+* Header fixed
+
 ---
 
 # Notes to Reviewer

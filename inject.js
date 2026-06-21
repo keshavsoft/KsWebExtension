@@ -8,13 +8,13 @@
 
     inject("ksheader.js");
 
-    console.log("✅ KSHeader JS injected");
+    console.log("✅ KSHeader v4.3 injected");
 
     inject("kstable.js");
 
-    console.log("✅ KSTable JS injected");
+    console.log("✅ KSTable v3.12 injected");
     
     inject("kstablecomp.js");
 
-    console.log("✅ KSTableComponents JS injected");
+    console.log("✅ KSTableComponents v3.9 injected");
 })();
