@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "KSTable Engine",
-  "version": "2.18",
+  "version": "2.20",
   "icons": {
     "48": "icons/KSIcon-48.png",
     "96": "icons/KSIcon-96.png"
