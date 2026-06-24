@@ -29,7 +29,7 @@
 
 # Notes to Reviewer
 
-This extension injects `kstable.js`, `kstablecomp.js`, `ksheader` into web pages through `inject.js`.
+This extension injects `kstable.js`, `kstablecomp.js`, `ksheader`, `ksheader`, `KSTableComponents` into web pages through `inject.js`.
 
 Package contents:
 
@@ -38,6 +38,7 @@ Package contents:
 * kstable.js
 * kstablecomp.js
 * ksheader.js
+* KSTableComponents.js
 * Icons folder
 
 No build step is required.
