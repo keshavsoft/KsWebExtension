@@ -1,6 +1,6 @@
 {
   "name": "kswebextension",
-  "version": "2.17.1",
+  "version": "2.19.1",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -8,5 +8,8 @@
   "main": "inject.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "references": {
+    "components": "https://keshavsoft.github.io/ks-web-comp-table"
   }
 }

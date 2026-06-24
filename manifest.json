@@ -29,7 +29,8 @@
         "kstable.js",
         "ksheader.js",
         "kstablecomp.js",
-        "tailwind-3-min.css"
+        "tailwind-3-min.css",
+        "KSTableComponents.js"
       ],
       "matches": [
         "<all_urls>"
