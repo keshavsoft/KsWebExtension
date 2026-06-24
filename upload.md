@@ -26,6 +26,21 @@
 * Header fixed
 
 ---
+## Version 2.20
+
+### Improvements
+
+* Updated KSTable engine.
+* Improved table rendering and stability.
+* Internal code cleanup and maintenance updates.
+* Performance optimizations for large tables.
+* Bug fixes and minor enhancements.
+* added css also
+* Updated KSTableComponent engine.
+* Header fixed
+
+29 failed, because on windows, shifter to linux for vite build
+---
 
 # Notes to Reviewer
 
