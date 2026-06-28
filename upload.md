@@ -41,6 +41,21 @@
 
 29 failed, because on windows, shifter to linux for vite build
 ---
+## Version 2.21
+
+### Improvements
+
+* Updated KSTable engine.
+* Improved table rendering and stability.
+* Internal code cleanup and maintenance updates.
+* Performance optimizations for large tables.
+* Bug fixes and minor enhancements.
+* added css also
+* Updated KSTableComponent engine.
+* Header fixed
+* kstable working on
+
+---
 
 # Notes to Reviewer
 
