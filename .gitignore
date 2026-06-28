@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Generated zip files
+#KSTable-Engine-*.zip
+
+# Local environment configuration
+.env
+.env.local

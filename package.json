@@ -1,13 +1,17 @@
 {
   "name": "kswebextension",
-  "version": "2.20.1",
+  "version": "2.21",
   "description": "",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
   "main": "inject.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "node publish.js"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.5.12"
   },
   "references": {
     "components": "https://keshavsoft.github.io/ks-web-comp-table"
