@@ -12,12 +12,12 @@
 
     inject("ksheader.js");
 
-    console.log("✅ KSHeader v5.1 injected");
+    console.log("✅ KSHeader v11 injected");
 
     inject("kstable.js");
 
     console.log("✅ KSTable v3.12 injected");
-    
+
     inject("kstablecomp.js");
 
     console.log("✅ KSTableComponents v3.10 injected");
