@@ -19,5 +19,5 @@
 
     inject("kstablecomp.js");
 
-    console.log("✅ KSTableComponents v3.10 injected");
+    console.log("✅ kstablecomp v3.13 injected");
 })();

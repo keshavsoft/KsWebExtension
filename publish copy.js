@@ -46,10 +46,9 @@ if (fs.existsSync(packagePath)) {
 // 3. Define the files/folders to package from upload.md list
 const filesToPack = [
   'manifest.json',
-  'injectStart.js',
-  'injectEnd.js',
+  'inject.js',
   'kstable.js',
-  'KSTableComponents.js',
+  'kstablecomp.js',
   'ksheader.js',
   'tailwind-3-min.css'
 ];
