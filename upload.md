@@ -101,9 +101,11 @@ Notes to Reviewer:
 This extension consists of below six source files:
 
 - manifest.json
-- inject.js
+- injectStart.js
+- injectEnd.js
 - kstable.js
 - kstablecomp.js
+- KSTableComponents.js
 - ksheader.js
 - tailwind-3-min.css
 - icons folder

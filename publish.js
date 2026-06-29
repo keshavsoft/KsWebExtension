@@ -49,6 +49,7 @@ const filesToPack = [
   'injectStart.js',
   'injectEnd.js',
   'kstable.js',
+  'kstablecomp.js',
   'KSTableComponents.js',
   'ksheader.js',
   'tailwind-3-min.css'
