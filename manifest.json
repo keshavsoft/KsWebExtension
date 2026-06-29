@@ -18,6 +18,29 @@
         "tailwind-3-min.css"
       ],
       "js": [
+        "injectStart.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "injectEnd.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "content_scripts1": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "tailwind-3-min.css"
+      ],
+      "js": [
         "inject.js"
       ],
       "run_at": "document_start"
