@@ -5,4 +5,4 @@
         transition-all duration-150
         md:flex-col md:justify-center md:items-center
         lg:bg-transparent lg:px-2 lg:py-1`,spanClass:`ml-3 text-right w-full text-base
-        md:w-auto md:text-center md:ml-0 lg:text-lg`,svgClass:t?.uiClasses?.svgDivClass||`text-gray-300 w-6 h-6 lg:w-7 lg:h-7`},a=n({inTextToShow:t.text,inHtmlId:t.id,inIconPaths:t.icon,inHref:t.href,onClick:t.onClick,inTableName:t.tableName,inClasses:r,inSvgName:t.svgName,inConfigUiClasses:e.uiClasses});i.appendChild(a)})};window.KSHeader=i,console.log(`KSHeader v10 loaded to DOM`),(async()=>{window.KSHeaderVersion=`v11`,window.KSHeader=i})()});
+        md:w-auto md:text-center md:ml-0 lg:text-lg`,svgClass:t?.uiClasses?.svgDivClass||`text-gray-300 w-6 h-6 lg:w-7 lg:h-7`},a=n({inTextToShow:t.text,inHtmlId:t.id,inIconPaths:t.icon,inHref:t.href,onClick:t.onClick,inTableName:t.tableName,inClasses:r,inSvgName:t.svgName,inConfigUiClasses:e.uiClasses});i.appendChild(a)})};window.KSHeader=i,console.log(`KSHeader v10 loaded to DOM`),(async()=>{window.KSHeaderVersion=`v5.10`,window.KSHeader=i})()});
