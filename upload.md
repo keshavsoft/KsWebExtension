@@ -1,5 +1,16 @@
 # Release Notes
 
+## Version 2.25
+
+### Improvements
+
+* Reorganized extension structure: moved core source files into a new `src/` folder to clean up the root directory.
+* Added compatibility with Firefox for Android (Mobile).
+* Updated and injected new components: `KSComponents.js`, `ksvertical.js`, and `kstableonly.js`.
+* Cleaned up and removed deprecated scripts (`kstable.js`, `KSTableComponents.js`, `inject.js`).
+
+---
+
 ## Version 2.17.1
 
 ### Improvements
@@ -59,17 +70,13 @@
 
 # Notes to Reviewer
 
-This extension injects `kstable.js`, `kstablecomp.js`, `ksheader`, `ksheader`, `KSTableComponents` into web pages through `inject.js`.
+This extension injects `src/KSComponents.js`, `src/ksheader.js`, `src/kstablecomp.js`, `src/ksvertical.js`, and `src/kstableonly.js` into web pages through `src/injectStart.js` and `src/injectEnd.js`.
 
 Package contents:
 
 * manifest.json
-* inject.js
-* kstable.js
-* kstablecomp.js
-* ksheader.js
-* KSTableComponents.js
-* Icons folder
+* src/ folder (containing the injection scripts and core JS/CSS files)
+* icons/ folder
 
 No build step is required.
 
@@ -98,20 +105,22 @@ Version 2.12.1
 
 Notes to Reviewer: 
 
-This extension consists of below six source files:
+This extension consists of the following source files and directories:
 
 - manifest.json
-- injectStart.js
-- injectEnd.js
-- kstable.js
-- kstablecomp.js
-- KSTableComponents.js
-- ksheader.js
-- tailwind-3-min.css
-- icons folder
+- icons/ folder
+- src/ folder containing:
+  - injectStart.js
+  - injectEnd.js
+  - KSComponents.js
+  - ksheader.js
+  - kstablecomp.js
+  - kstableonly.js
+  - ksvertical.js
+  - tailwind-3-min.css
 
 Purpose:
-The extension injects kstable.js into web pages so that KSTable functionality is available in the page context.
+The extension injects the KSComponents and associated KSTable rendering libraries into web pages so that KSTable functionality is available in the page context.
 
 No build tools, bundlers, transpilers, minifiers, remote code, dynamic code generation, eval(), or external dependencies are used.
 
