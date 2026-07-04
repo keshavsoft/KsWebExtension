@@ -15,10 +15,10 @@
         "<all_urls>"
       ],
       "css": [
-        "tailwind-3-min.css"
+        "src/tailwind-3-min.css"
       ],
       "js": [
-        "injectStart.js"
+        "src/injectStart.js"
       ],
       "run_at": "document_start"
     },
@@ -27,7 +27,7 @@
         "<all_urls>"
       ],
       "js": [
-        "injectEnd.js"
+        "src/injectEnd.js"
       ],
       "run_at": "document_end"
     }
@@ -38,10 +38,10 @@
         "<all_urls>"
       ],
       "css": [
-        "tailwind-3-min.css"
+        "src/tailwind-3-min.css"
       ],
       "js": [
-        "inject.js"
+        "src/inject.js"
       ],
       "run_at": "document_start"
     }
@@ -49,11 +49,11 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "kstable.js",
-        "ksheader.js",
-        "kstablecomp.js",
-        "tailwind-3-min.css",
-        "KSTableComponents.js"
+        "src/kstable.js",
+        "src/ksheader.js",
+        "src/kstablecomp.js",
+        "src/tailwind-3-min.css",
+        "src/KSTableComponents.js"
       ],
       "matches": [
         "<all_urls>"
