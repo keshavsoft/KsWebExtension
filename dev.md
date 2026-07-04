@@ -1,177 +1,80 @@
-# KsWebExtension
+# KSTable Engine - Developer Guide & Release Process
 
-Firefox extension for injecting KSTable into web pages.
-
-## Versioning
-
-Keep all versions in sync.
-
-```json
-// manifest.json
-{
-  "version": "1.10.1"
-}
-```
-
-```json
-// package.json
-{
-  "version": "1.10.1"
-}
-```
-
-```bash
-git tag v1.10.1
-```
+This document describes how to develop, test, package, and release updates for the **KSTable Engine** Firefox Extension.
 
 ---
 
-## Development
+## 1. Directory Structure
 
-Load the extension temporarily in Firefox.
-
-1. Open Firefox.
-2. Navigate to:
-
-```text
-about:debugging
-```
-
-3. Click:
-
-```text
-This Firefox
-```
-
-4. Click:
-
-```text
-Load Temporary Add-on
-```
-
-5. Select:
-
-```text
-manifest.json
-```
+All core extension code is stored under the `src/` directory to keep the root directory clean:
+*   `src/injectStart.js`: Content script that runs at `document_start` (injects `KSComponents.js`).
+*   `src/injectEnd.js`: Content script that runs at `document_end` (injects libraries like `ksheader.js`, `kstablecomp.js`, etc.).
+*   `src/KSComponents.js`, `src/ksheader.js`, `src/kstablecomp.js`, `src/kstableonly.js`, `src/ksvertical.js`: Loaded JS libraries.
+*   `src/tailwind-3-min.css`: Injected tailwind styles.
+*   `icons/`: Toolbar and menu icons.
+*   `manifest.json`: Configuration mapping files and specifying permissions.
 
 ---
 
-## Release Process
+## 2. Local Development & Testing
 
-### Step 1
+### Option A: Testing on Desktop Firefox
+1. Open Firefox on your computer.
+2. Navigate to `about:debugging`.
+3. Click **"This Firefox"** -> **"Load Temporary Add-on"**.
+4. Select `manifest.json` from the root of this workspace.
 
-Update:
+### Option B: Testing on Firefox for Android (Mobile)
+Ensure ADB is installed and your phone has USB/Wireless debugging enabled (with "Remote debugging via USB" turned on inside Firefox for Android settings).
 
-```text
-kstable.js
+1. Connect your phone over ADB (USB or Wireless).
+2. Verify connection:
+   ```powershell
+   adb devices
+   ```
+3. Run the extension watch/load command in the root folder:
+   ```powershell
+   npx web-ext run --target=firefox-android --android-device=<Your_Device_ID>
+   ```
+
+---
+
+## 3. Release & Submission Process
+
+Follow these steps for every new release:
+
+### Step 1: Update Version
+1. Open `manifest.json` and change the `"version"` field (e.g., `"2.25"`).
+2. Do not change the version in `package.json` manually; it is synced automatically by the packaging script.
+
+### Step 2: Update Release Notes
+1. Open `upload.md`.
+2. Move the previous version's release notes section to the top of `archive/upload_history.md`.
+3. Overwrite the copy-paste fields in `upload.md` with your new version's notes:
+   *   Section 1: **Release Notes**
+   *   Section 2: **Notes to Reviewer** (verify if any new JS files were added to the `src/` folder and list them under "This extension consists of the following source files...").
+
+### Step 3: Run Package Build
+Generate the zipped extension bundle by running:
+```powershell
+npm run package
 ```
+This automatically:
+- Syncs the version to `package.json`.
+- Creates `KSTable-Engine-<version>.zip` in the root folder containing `manifest.json`, the `icons/` folder, and the `src/` folder.
 
-### Step 2
+### Step 4: Upload to Firefox Add-on Developer Hub
+1. Open the [Add-on Developer Hub](https://addons.mozilla.org/developers/).
+2. Click **"Submit New Version"**.
+3. Upload the newly built `KSTable-Engine-<version>.zip` file.
+4. Copy the text from `upload.md` and paste it into the **"Release Notes"** and **"Notes to Reviewer"** fields.
+5. Submit for review.
 
-Update version in:
-
-```text
-manifest.json
-package.json
-```
-
-### Step 3
-
-Update:
-
-```text
-CHANGELOG.md
-```
-
-### Step 4
-
-Commit changes.
-
+### Step 5: Git Commit & Tag
+Commit and tag the release version:
 ```bash
 git add .
-git commit -m "Release v1.10.1"
-```
-
-### Step 5
-
-Create tag.
-
-```bash
-git tag v1.10.1
-git push
-git push origin v1.10.1
-```
-
----
-
-## Create Upload ZIP
-
-Select and zip:
-
-```text
-manifest.json
-inject.js
-kstable.js
-```
-
-Example:
-
-```text
-KsWebExtension-v1.10.1.zip
-```
-
-Do not zip:
-
-```text
-.git
-archive
-node_modules
-```
-
----
-
-## Upload To Firefox
-
-Open:
-
-https://addons.mozilla.org/developers/
-
-Navigate:
-
-```text
-Add-on Developer Hub
-→ Submit New Version
-```
-
-Upload:
-
-```text
-KsWebExtension-v1.10.1.zip
-```
-
-Submit for review.
-
----
-
-## Archive
-
-After successful release:
-
-```text
-archive/
- ├─ v1
- ├─ v2
- ├─ v3
-```
-
-Store previous release artifacts if required.
-
----
-
-## Current Release
-
-```text
-Version : 1.10.1
-Tag     : v1.10.1
+git commit -m "Release v<version>"
+git tag "v<version>"
+git push origin master --tags
 ```
