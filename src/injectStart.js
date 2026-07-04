@@ -9,7 +9,7 @@
         document.documentElement.appendChild(script);
     };
 
-    inject("src/KSTableComponents.js");
+    inject("src/KSComponents.js");
 
-    console.log("✅ KSTableComponents v2.3 injected");
+    console.log("✅ KSComponents v3.14 injected");
 })();

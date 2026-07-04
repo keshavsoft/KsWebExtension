@@ -11,13 +11,18 @@
 
     inject("src/ksheader.js");
 
-    console.log("✅ KSHeader v11 injected");
-
-    inject("src/kstable.js");
-
-    console.log("✅ KSTable v3.12 injected");
+    console.log("✅ KSHeader v13 injected");
 
     inject("src/kstablecomp.js");
 
-    console.log("✅ kstablecomp v3.13 injected");
+    console.log("✅ kstablecomp v14 injected");
+
+    inject("src/ksvertical.js");
+
+    console.log("✅ ksvertical v2.8 injected");
+
+    inject("src/kstableonly.js");
+
+    console.log("✅ kstableonly v3 injected");
+
 })();
