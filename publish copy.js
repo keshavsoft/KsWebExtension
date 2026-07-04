@@ -45,12 +45,16 @@ if (fs.existsSync(packagePath)) {
 
 // 3. Define the files/folders to package from upload.md list
 const filesToPack = [
-  'manifest.json'
+  'manifest.json',
+  'inject.js',
+  'kstable.js',
+  'kstablecomp.js',
+  'ksheader.js',
+  'tailwind-3-min.css'
 ];
 
 const foldersToPack = [
-  { local: 'icons', zip: 'icons' },
-  { local: 'src', zip: 'src' }
+  { local: 'icons', zip: 'icons' }
 ];
 
 // Check if all files/folders exist

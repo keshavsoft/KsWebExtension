@@ -15,22 +15,32 @@
         "<all_urls>"
       ],
       "css": [
-        "tailwind-3-min.css"
+        "src/tailwind-3-min.css"
       ],
       "js": [
-        "inject.js"
+        "src/injectStart.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/injectEnd.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
     {
       "resources": [
-        "kstable.js",
-        "ksheader.js",
-        "kstablecomp.js",
-        "tailwind-3-min.css",
-        "KSTableComponents.js"
+        "src/ksheader.js",
+        "src/kstablecomp.js",
+        "src/tailwind-3-min.css",
+        "src/KSComponents.js",
+        "src/ksvertical.js",
+        "src/kstableonly.js"
       ],
       "matches": [
         "<all_urls>"
