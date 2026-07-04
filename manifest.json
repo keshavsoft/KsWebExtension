@@ -32,28 +32,15 @@
       "run_at": "document_end"
     }
   ],
-  "content_scripts1": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "css": [
-        "src/tailwind-3-min.css"
-      ],
-      "js": [
-        "src/inject.js"
-      ],
-      "run_at": "document_start"
-    }
-  ],
   "web_accessible_resources": [
     {
       "resources": [
-        "src/kstable.js",
         "src/ksheader.js",
         "src/kstablecomp.js",
         "src/tailwind-3-min.css",
-        "src/KSTableComponents.js"
+        "src/KSComponents.js",
+        "src/ksvertical.js",
+        "src/kstableonly.js"
       ],
       "matches": [
         "<all_urls>"
