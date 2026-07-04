@@ -56,6 +56,14 @@
 * kstable working on
 
 ---
+## Version 2.25
+
+### Improvements
+
+* Added compatibility configuration for **Firefox for Android** (`gecko_android` settings).
+* Bumped version to 2.25.
+
+---
 
 # Notes to Reviewer
 
