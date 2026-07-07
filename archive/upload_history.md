@@ -4,6 +4,10 @@ This archive stores the release notes for older versions of **KSTable Engine**.
 
 ---
 
+## Version 2.25
+* Added compatibility configuration for **Firefox for Android** (`gecko_android` settings).
+* Bumped version to 2.25.
+
 ## Version 2.24
 *   Updated KSTable engine.
 *   Fixed minor issues and improved layout.

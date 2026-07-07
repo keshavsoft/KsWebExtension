@@ -1,14 +1,14 @@
-# Extension Submission Guide (v2.25)
+# Extension Submission Guide (v2.26)
 
 This document contains the exact text to copy-paste when uploading the new version of **KSTable Engine** to the Firefox Add-on Developer Hub.
 
 ---
-## Version 2.25
+## Version 2.26
 
 ### Improvements
 
-* Added compatibility configuration for **Firefox for Android** (`gecko_android` settings).
-* Bumped version to 2.25.
+* Removed CSS (`tailwind-3-min.css`) injection and resource declaration.
+* Bumped version to 2.26.
 
 ---
 
@@ -16,11 +16,8 @@ This document contains the exact text to copy-paste when uploading the new versi
 *Copy and paste the text below into the **"Release Notes"** box (Let your users know what's new):*
 
 ```text
-Version 2.25:
-- Reorganized extension directory structure by moving core files into a clean `src/` folder.
-- Enabled compatibility with Firefox for Android (mobile browsers).
-- Updated and injected new helper components: KSComponents.js, ksvertical.js, and kstableonly.js.
-- Cleaned up deprecated and unused source scripts.
+Version 2.26:
+- Removed CSS (tailwind-3-min.css) injection to avoid affecting web page styles.
 ```
 
 ---
@@ -43,7 +40,6 @@ This extension consists of the following source files and directories:
   - kstablecomp.js
   - kstableonly.js
   - ksvertical.js
-  - tailwind-3-min.css
 
 No build tools, bundlers, transpilers, minifiers, remote code, dynamic code generation, eval(), or external dependencies are used. The uploaded ZIP contains the exact source code reviewed by Firefox.
 
