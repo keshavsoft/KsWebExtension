@@ -9,9 +9,9 @@
         document.documentElement.appendChild(script);
     };
 
-    inject("src/ksheader.min.js");
+    inject("src/ksheader.js");
 
-    console.log("✅ ksheader.min v14 injected");
+    console.log("✅ KSHeader v13 injected");
 
     inject("src/kstablecomp.js");
 

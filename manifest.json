@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "KSTable Engine",
-  "version": "2.26",
+  "version": "2.27",
   "icons": {
     "48": "icons/KSIcon-48.png",
     "96": "icons/KSIcon-96.png"
@@ -32,7 +32,7 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "src/ksheader.js",
+        "src/ksheader.min.js",
         "src/kstablecomp.js",
         "src/KSComponents.js",
         "src/ksvertical.js",
