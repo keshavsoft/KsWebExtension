@@ -97,6 +97,16 @@ for (const folder of foldersToPack) {
 const zipName = `KSTable-Engine-${version}.zip`;
 const zipPath = path.join(__dirname, zipName);
 
+if (fs.existsSync(zipPath)) {
+  try {
+    fs.unlinkSync(zipPath);
+  } catch (err) {
+    console.error(`\nError: The zip file "${zipName}" is currently locked by another program (e.g., Windows Explorer, WinRAR, or your browser).`);
+    console.error(`Please close any programs using this file and try again.\n`);
+    process.exit(1);
+  }
+}
+
 try {
   zip.writeZip(zipPath);
   console.log(`\nSuccess! Created extension package: ${zipName}`);
