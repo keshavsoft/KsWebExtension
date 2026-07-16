@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSTable Engine Automation & Release</title>
+  <meta name="description" content="Technical guide for the automation scripts and packaging flow of KSTable Engine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --sidebar-bg: #111827;
+      --card-bg: rgba(31, 41, 55, 0.5);
+      --card-border: rgba(75, 85, 99, 0.3);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --cyan: #06b6d4;
+      --purple: #a855f7;
+      --cyan-glow: rgba(6, 182, 212, 0.2);
+      --purple-glow: rgba(168, 85, 247, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 280px;
+      background-color: var(--sidebar-bg);
+      border-right: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      padding: 2rem 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      border-radius: 8px;
+      box-shadow: 0 0 15px var(--cyan-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, var(--text-main), #d1d5db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item a:hover {
+      color: var(--text-main);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item.active a {
+      color: var(--cyan);
+      background-color: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.05);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--card-border);
+      padding-top: 1.5rem;
+    }
+
+    .version-tag {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      background-color: rgba(168, 85, 247, 0.2);
+      color: #e9d5ff;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Main Content */
+    .content-wrapper {
+      margin-left: 280px;
+      padding: 3rem 4rem;
+      flex-grow: 1;
+      max-width: 1200px;
+    }
+
+    header {
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 40%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 span {
+      color: var(--purple);
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Code Block Styling */
+    .code-window {
+      background-color: #0d1117;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .code-header {
+      background-color: #161b22;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-red { background-color: #ff5f56; }
+    .dot-yellow { background-color: #ffbd2e; }
+    .dot-green { background-color: #27c93f; }
+
+    .code-title {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-left: 0.5rem;
+    }
+
+    pre {
+      padding: 1.5rem;
+      overflow-x: auto;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #c9d1d9;
+    }
+
+    .keyword { color: #ff7b72; }
+    .string { color: #a5d6ff; }
+    .comment { color: #8b949e; }
+    .function { color: #d2a8ff; }
+    .variable { color: #ffa657; }
+
+    /* Steps List */
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+    }
+
+    .step-text h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-main);
+    }
+
+    .step-text p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">KS</div>
+      <div class="brand-name">KSTable Engine</div>
+    </div>
+    
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="index.html" id="nav-dashboard">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"/></svg>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="architecture.html" id="nav-architecture">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            Architecture
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="automation.html" id="nav-automation">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Automation & Release
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div>Active Scope</div>
+      <div class="version-tag">Extension v2.28</div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content-wrapper">
+    <header>
+      <h1>Automation & Release Management</h1>
+      <p class="lead">How the build scripts pull code from sibling workspace repos, create archive backups, and generate the Firefox extension package.</p>
+    </header>
+
+    <!-- Update logic -->
+    <section class="section">
+      <h2 class="section-title"><span>#</span> Automation Script: update-src.js</h2>
+      <p>
+        The `update-src.js` script handles syncing workspace resources automatically. It contains mapping definitions for all the compiled libraries, searching in their respectives `/dist` or `/public` folders to find the latest version directories.
+      </p>
+
+      <div class="code-window">
+        <div class="code-header">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="code-title">update-src.js (Source Code Configuration)</span>
+        </div>
+        <pre><code><span class="comment">// Sibling directories mapping to the files in src/</span>
+<span class="keyword">const</span> <span class="variable">fileMappings</span> = [
+  {
+    repo: <span class="string">'tailwind-header-dom'</span>,
+    subDir: <span class="string">'public'</span>,
+    prefix: <span class="string">'v'</span>,
+    files: [<span class="string">'ksheader.js'</span>, <span class="string">'ksheader.min.js'</span>]
+  },
+  {
+    repo: <span class="string">'ks-web-comp-table'</span>,
+    subDir: <span class="string">'dist'</span>,
+    prefix: <span class="string">'v'</span>,
+    files: [<span class="string">'KSComponents.js'</span>]
+  },
+  {
+    repo: <span class="string">'tailwind-table-dom-comp'</span>,
+    subDir: <span class="string">'dist'</span>,
+    prefix: <span class="string">'v'</span>,
+    files: [<span class="string">'kstablecomp.js'</span>]
+  },
+  {
+    repo: <span class="string">'tailwind-table-dom-comp-show'</span>,
+    subDir: <span class="string">'dist'</span>,
+    prefix: <span class="string">'v'</span>,
+    files: [<span class="string">'kstableonly.js'</span>]
+  },
+  {
+    repo: <span class="string">'tailwind-vertical-dom'</span>,
+    subDir: <span class="string">'dist'</span>,
+    prefix: <span class="string">'v'</span>,
+    files: [<span class="string">'ksvertical.js'</span>]
+  }
+];</code></pre>
+      </div>
+    </section>
+
+    <!-- Release sequence -->
+    <section class="section">
+      <h2 class="section-title"><span>#</span> Release Cycle Steps</h2>
+      <p>Follow this exact checklist when preparing and uploading a new release:</p>
+
+      <ol class="steps-list">
+        <li class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h3>Update manifest.json version</h3>
+            <p>Open <code>manifest.json</code> and change the <code>"version"</code> field (e.g. <code>"2.28"</code>). Do not touch the package.json version; the script will handle syncing it.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h3>Run update command</h3>
+            <p>Run <code>npm run update-src</code>. This copies your files to the archives folder, updates the extension source files, and builds the new zip package in the root directory.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <h3>Update release notes</h3>
+            <p>Open <code>upload.md</code> and draft the version release notes. Copy older notes from <code>upload.md</code> into <code>archive/upload_history.md</code> to keep history tidy.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <h3>Upload zip package</h3>
+            <p>Log in to the Firefox Add-on Developer Hub, upload the new <code>.zip</code> file, and paste the release notes from <code>upload.md</code>.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+</body>
+</html>
