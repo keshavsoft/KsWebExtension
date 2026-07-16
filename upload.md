@@ -1,14 +1,15 @@
-# Extension Submission Guide (v2.26)
+# Extension Submission Guide (v2.28)
 
 This document contains the exact text to copy-paste when uploading the new version of **KSTable Engine** to the Firefox Add-on Developer Hub.
 
 ---
-## Version 2.26
+## Version 2.28
 
 ### Improvements
 
-* Removed CSS (`tailwind-3-min.css`) injection and resource declaration.
-* Bumped version to 2.26.
+* Updated KSTable engine core component and rendering libraries from workspace sibling projects.
+* Included security and error handling checks in extension loader files.
+* Bumped version to 2.28.
 
 ---
 
@@ -16,8 +17,9 @@ This document contains the exact text to copy-paste when uploading the new versi
 *Copy and paste the text below into the **"Release Notes"** box (Let your users know what's new):*
 
 ```text
-Version 2.26:
-- Removed CSS (tailwind-3-min.css) injection to avoid affecting web page styles.
+Version 2.28:
+- Updated core KSTable rendering engines and components to their latest versions.
+- General maintenance and stability improvements.
 ```
 
 ---
@@ -37,6 +39,7 @@ This extension consists of the following source files and directories:
   - injectEnd.js
   - KSComponents.js
   - ksheader.js
+  - ksheader.min.js
   - kstablecomp.js
   - kstableonly.js
   - ksvertical.js
@@ -48,5 +51,3 @@ Testing Instructions:
 2. Open any webpage.
 3. Open the browser console; you will see logs confirming the successful injection of components.
 ```
-
-

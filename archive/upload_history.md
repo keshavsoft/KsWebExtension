@@ -4,6 +4,10 @@ This archive stores the release notes for older versions of **KSTable Engine**.
 
 ---
 
+## Version 2.26
+* Removed CSS (`tailwind-3-min.css`) injection and resource declaration.
+* Bumped version to 2.26.
+
 ## Version 2.25
 * Added compatibility configuration for **Firefox for Android** (`gecko_android` settings).
 * Bumped version to 2.25.
