@@ -8,7 +8,8 @@
   "main": "inject.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "node publish.js"
+    "package": "node publish.js",
+    "update-src": "node update-src.js"
   },
   "devDependencies": {
     "adm-zip": "^0.5.12"
